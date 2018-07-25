@@ -1,5 +1,5 @@
 # Set the base image for subsequent instructions
-FROM php:latest
+FROM php:7.1
 
 # Update packages
 RUN apt-get update
@@ -12,7 +12,6 @@ RUN docker-php-ext-install mbstring pdo_mysql curl json intl gd xml zip bz2 opca
 
 # Clear out the local repository of retrieved package files
 RUN apt-get clean
-
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
